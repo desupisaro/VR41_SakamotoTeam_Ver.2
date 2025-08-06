@@ -1,55 +1,42 @@
 ﻿using Oculus.Interaction;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    // 銃弾のプレハブ。
-    // 発砲した際に、このオブジェクトを弾として実体化する。
-    [SerializeField]
-    private GameObject m_bulletPrefab = null;
+    [SerializeField] 
+    [Header("弾のオブジェクト")]
+    private GameObject bulletPrefab;
 
-    // 銃口の位置。
-    // 銃弾を実体化する時の位置や向きの設定などに使用する。
     [SerializeField]
-    private Transform m_muzzlePos = null;
+    [Header("弾の発射位置")]
+    private Transform muzzlePos;
 
+    [SerializeField]
+    [Header("銃を撃つサウンド")]
+    private AudioSource _audio;
+
+    // 持っているかどうか判定するためのやつ
     [SerializeField]
     private GrabInteractable grabInteractable;
 
+    [SerializeField] 
+    private HandSelector _selectHands;
+
     void Update()
     {
-        // Interactorが存在していれば掴まれていると判定
         if (grabInteractable != null &&
             grabInteractable.Interactors.Count > 0 &&
-            OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+           _selectHands.GetHandRight())
         {
-            // 弾発射
-            ShootAmmo();
+            Shoot();
+
+            // サウンド再生
+            _audio.Play();
         }
     }
 
-
-    // 銃弾を生成する。
-    private void ShootAmmo()
+    private void Shoot()
     {
-        //弾のプレハブか銃口位置が設定されていなければ処理を行わず帰る。ついでに煽る。
-        if (m_bulletPrefab == null ||
-            m_muzzlePos == null)
-        {
-            Debug.Log(" Inspector の設定が間違ってる");
-            return;
-        }
-
-        //弾を生成する。
-        GameObject bulletObj = Instantiate(m_bulletPrefab);
-
-        //弾の位置を、銃口の位置と同一にする。
-        bulletObj.transform.position = m_muzzlePos.position;
-
-        //弾の向きを、銃口の向きと同一にする。
-        bulletObj.transform.rotation = m_muzzlePos.rotation;
-
+        Instantiate(bulletPrefab, muzzlePos.position, muzzlePos.rotation);
     }
 }

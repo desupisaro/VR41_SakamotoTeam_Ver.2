@@ -13,18 +13,30 @@ public class LightController : MonoBehaviour
     [SerializeField]
     private GrabInteractable grabInteractable;
 
+    [SerializeField]
+    [Header("ライトONOFFのサウンド")]
+    private AudioSource _audio;
+
+    [SerializeField]
+    private HandSelector _selectHands;
+
     // ライトの状態判定
     bool _isLight = false;
 
     void Update()
     {
+
+
         // Interactorが存在していれば掴まれていると判定
-    if (grabInteractable != null &&
-        grabInteractable.Interactors.Count > 0 &&
-        OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+        if (grabInteractable != null &&
+            grabInteractable.Interactors.Count > 0 &&
+           _selectHands.GetHandLeft())
         {
             // ライトの切り替え
             OnLight();
+
+            // サウンド再生
+            _audio.Play();
         }
     }
 

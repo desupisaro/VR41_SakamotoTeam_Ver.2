@@ -17,4 +17,19 @@ public class BulletController : MonoBehaviour
         transform.position +=
             transform.forward * m_bulletSpeed * Time.deltaTime;
     }
+
+    // 衝突判定（Trigger）
+    private void OnTriggerEnter(Collider other)
+    {
+        // 例：敵に当たったら破壊
+        if (other.CompareTag("Enemy"))
+        {
+            // 敵にダメージを与える処理など
+            Destroy(other.gameObject);
+        }
+
+        // 弾自身も消す
+        Destroy(gameObject);
+    }
+
 }

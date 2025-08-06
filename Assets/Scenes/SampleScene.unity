@@ -966,6 +966,7 @@ GameObject:
   - component: {fileID: 608261372}
   - component: {fileID: 608261371}
   - component: {fileID: 608261378}
+  - component: {fileID: 608261379}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -1144,6 +1145,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lightPrefab: {fileID: 430513210}
+  grabInteractable: {fileID: 446132684}
+  _selectHands: {fileID: 608261379}
+--- !u!114 &608261379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608261370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ffa9584d8414b4d8cfe90c8f408bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   grabInteractable: {fileID: 446132684}
 --- !u!1001 &658981310
 PrefabInstance:
@@ -1324,6 +1339,7 @@ GameObject:
   - component: {fileID: 786537776}
   - component: {fileID: 786537775}
   - component: {fileID: 786537782}
+  - component: {fileID: 786537783}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -1501,8 +1517,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecf522d19ad2ff45951ba8545aad687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletPrefab: {fileID: 4033315345226647830, guid: 17570a5fc2f938849a3f5953494b7d79, type: 3}
-  m_muzzlePos: {fileID: 1619088425}
+  bulletPrefab: {fileID: 4033315345226647830, guid: 17570a5fc2f938849a3f5953494b7d79, type: 3}
+  muzzlePos: {fileID: 1619088425}
+  grabInteractable: {fileID: 1640846706}
+  _selectHands: {fileID: 786537783}
+--- !u!114 &786537783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786537774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ffa9584d8414b4d8cfe90c8f408bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   grabInteractable: {fileID: 1640846706}
 --- !u!1 &831386481
 GameObject:
