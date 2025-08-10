@@ -25,8 +25,6 @@ public class LightController : MonoBehaviour
 
     void Update()
     {
-
-
         // Interactorが存在していれば掴まれていると判定
         if (grabInteractable != null &&
             grabInteractable.Interactors.Count > 0 &&
@@ -35,8 +33,9 @@ public class LightController : MonoBehaviour
             // ライトの切り替え
             OnLight();
 
-            // サウンド再生
-            _audio.Play();
+            // _audio変数がnullの場合は処理を行わない。（追記：菅村）
+            if(_audio != null)
+                _audio.Play(); // サウンド再生
         }
     }
 

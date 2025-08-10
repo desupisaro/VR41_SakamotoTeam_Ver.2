@@ -30,8 +30,9 @@ public class GunController : MonoBehaviour
         {
             Shoot();
 
-            // サウンド再生
-            _audio.Play();
+            // _audio変数がnullの場合は処理を行わない。（追記：菅村）
+            if (_audio != null)
+                _audio.Play(); // サウンド再生
         }
     }
 
