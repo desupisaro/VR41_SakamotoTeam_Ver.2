@@ -772,7 +772,7 @@ MonoBehaviour:
   - {fileID: 29609306}
   - {fileID: 194061577}
   - {fileID: 996987149}
-  - {fileID: 996987149}
+  - {fileID: 1356094027}
 --- !u!4 &151889323
 Transform:
   m_ObjectHideFlags: 0
@@ -1824,7 +1824,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690118064}
-  - component: {fileID: 690118065}
   m_Layer: 0
   m_Name: Placement
   m_TagString: Untagged
@@ -1850,30 +1849,6 @@ Transform:
   - {fileID: 1678513437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &690118065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690118063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9cc24ec29277d4a90aafba6698fc05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posList:
-  - {fileID: 1770101350}
-  - {fileID: 1685331099}
-  - {fileID: 92043837}
-  - {fileID: 441113907}
-  - {fileID: 1252583953}
-  objectList:
-  - {fileID: 1276493702}
-  - {fileID: 194061577}
-  - {fileID: 996987149}
-  - {fileID: 1356094027}
-  - {fileID: 29609306}
 --- !u!1 &783790879
 GameObject:
   m_ObjectHideFlags: 0
