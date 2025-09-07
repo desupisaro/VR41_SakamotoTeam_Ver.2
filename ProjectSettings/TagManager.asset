@@ -30,6 +30,7 @@ TagManager:
   - QDSUIToggleCheckboxRadio
   - Target
   - SEManager
+  - Timer
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class LightController : MonoBehaviour
     private HandSelector _selectHands;
 
     // ライトの状態判定
-    bool _isLight = false;
+    bool _isLight = true;
 
     private void Start()
     {

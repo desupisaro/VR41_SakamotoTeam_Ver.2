@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // VRコントローラーのAボタン入力を検知するためのInputAction
     public InputActionProperty restartAction;
 
+    private timeCounter _time;
+    private float _timer = 0.0f;
+
     private void Awake()
     {
         if (instance == null)
@@ -24,11 +27,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        _timer = 0f;
+        _time = GameObject.FindGameObjectWithTag("Timer").GetComponent<timeCounter>();
+        
         if (clearPanel != null)
         {
             clearPanel.SetActive(false);
         }
-    }
+
+        
+}
 
     private void OnEnable()
     {
@@ -44,6 +52,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // 経過時間を取得。
+        _timer += Time.deltaTime;
+
         // ゲームがクリア状態で、かつVRコントローラーのボタンが押されたかチェックする
         if (isGameClear && clearPanel != null)
         {
@@ -60,11 +71,17 @@ public class GameManager : MonoBehaviour
     public void SetGameClear()
     {
         isGameClear = true;
+        _time.TimerShow();
         Debug.Log("Game Cleared!");
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public float GetTime()
+    {
+        return _timer;
     }
 }
