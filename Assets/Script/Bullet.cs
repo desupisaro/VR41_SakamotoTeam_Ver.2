@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        // 衝突した相手のタグを確認
-        if (collision.gameObject.tag == "Target")
+        // 衝突した相手のタグが"Target"か確認
+        if (other.gameObject.tag == "Target")
         {
-            // 弾（自身）を破棄
-            Destroy(gameObject);
+            // GameManagerが存在すれば、クリア状態を通知する
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.SetGameClear();
+            }
 
-            // ターゲットオブジェクトを破棄
-            Destroy(collision.gameObject);
+            // 弾とターゲットを破棄
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
