@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bulletSpeed: 15
+  HitEffect: {fileID: 5435976165695371152, guid: e4056666368347e4a9b192d376611db4, type: 3}
 --- !u!96 &2635412231863687445
 TrailRenderer:
   serializedVersion: 3
@@ -332,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c6743398593a44caa4eaff8860faf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearPanel: {fileID: 8465786311878116225, guid: f5e64c55c28e4424dbdf529edf4a75ef, type: 3}
 --- !u!54 &-1297050636958596826
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,6 +10,10 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     private float m_bulletSpeed = 27.0f;
 
+    [SerializeField]
+    [Header("Hitエフェクト")]
+    private ParticleSystem HitEffect;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +31,8 @@ public class BulletController : MonoBehaviour
             // 敵にダメージを与える処理など
             Destroy(other.gameObject);
         }
+
+        HitEffect.Play();
 
         // 弾自身も消す
         Destroy(gameObject);
