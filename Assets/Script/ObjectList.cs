@@ -14,6 +14,8 @@ public class ObjectList : MonoBehaviour
 
     private List<GameObject> activeObjects = new List<GameObject>();
 
+    [SerializeField] private targetChenger _target;
+
     void Start()
     {
         int numberOfObjectsToSpawn = Mathf.Min(posList.Count, objectList.Count);
@@ -37,6 +39,7 @@ public class ObjectList : MonoBehaviour
             {
                 instantiatedObject.tag = "Target";
                 Debug.Log($"Target is {instantiatedObject.name}");
+                _target.SetTargetName(instantiatedObject.name);
 
                 // ターゲットオブジェクトに特別なマテリアルを適用
                 ApplyTargetMaterial(instantiatedObject);
