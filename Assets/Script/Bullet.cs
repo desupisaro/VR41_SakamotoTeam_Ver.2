@@ -1,17 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // シーン管理のために必要
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    // 画面上のUI要素への参照
+    public GameObject clearPanel; // クリア表示用のUIパネル（非表示にしておく）
+
+    private void OnTriggerEnter(Collider other)
     {
         // 衝突した相手のタグを確認
-        if (collision.gameObject.tag == "Target")
+        if (other.gameObject.tag == "Target")
         {
-            // 弾（自身）を破棄
-            Destroy(gameObject);
+            // クリア表示パネルを有効にする
+            if (clearPanel != null)
+            {
+                clearPanel.SetActive(true);
+            }
 
-            // ターゲットオブジェクトを破棄
-            Destroy(collision.gameObject);
+            // 弾とターゲットオブジェクトを破棄
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

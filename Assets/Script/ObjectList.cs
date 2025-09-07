@@ -8,6 +8,10 @@ public class ObjectList : MonoBehaviour
     [SerializeField]
     private List<GameObject> objectList = new List<GameObject>();
 
+    // ターゲットに適用したいマテリアルをインスペクターから設定できるようにする
+    [SerializeField]
+    private Material targetMaterial;
+
     private List<GameObject> activeObjects = new List<GameObject>();
 
     void Start()
@@ -17,7 +21,6 @@ public class ObjectList : MonoBehaviour
         List<GameObject> shuffledObjects = new List<GameObject>(objectList);
         Shuffle(shuffledObjects);
 
-        // 特別なオブジェクトをランダムに選ぶためのインデックス
         int specialObjectIndex = Random.Range(0, numberOfObjectsToSpawn);
 
         for (int i = 0; i < numberOfObjectsToSpawn; i++)
@@ -30,13 +33,37 @@ public class ObjectList : MonoBehaviour
             GameObject instantiatedObject = Instantiate(prefabToInstantiate, spawnPos, spawnRot);
             activeObjects.Add(instantiatedObject);
 
-            // ランダムに選ばれたオブジェクトに特別なタグを付ける
             if (i == specialObjectIndex)
             {
-                // ここでオブジェクトに「Target」のようなタグを付ける
                 instantiatedObject.tag = "Target";
                 Debug.Log($"Target is {instantiatedObject.name}");
+
+                // ターゲットオブジェクトに特別なマテリアルを適用
+                ApplyTargetMaterial(instantiatedObject);
             }
+        }
+    }
+
+    // ターゲットオブジェクトにマテリアルを適用するヘルパー関数
+    void ApplyTargetMaterial(GameObject obj)
+    {
+        // マテリアルが設定されているか確認
+        if (targetMaterial != null)
+        {
+            // MeshRendererコンポーネントを取得
+            MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
+            if (renderer != null)
+            {
+                renderer.material = targetMaterial; // マテリアルを適用
+            }
+            else
+            {
+                Debug.LogWarning($"Target object {obj.name} has no MeshRenderer component to apply material.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Target Material is not assigned in the Inspector.");
         }
     }
 
