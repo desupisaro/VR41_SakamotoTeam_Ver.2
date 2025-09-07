@@ -2675,6 +2675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4033315345226647830, guid: 17570a5fc2f938849a3f5953494b7d79, type: 3}
+  GunEffect: {fileID: 995727458}
   muzzlePos: {fileID: 1619088425}
   _audio: {fileID: 380635057}
   grabInteractable: {fileID: 1640846706}
@@ -8793,7 +8794,7 @@ Transform:
   m_GameObject: {fileID: 1117820854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -102.2, z: -113.7}
+  m_LocalPosition: {x: -17.1, y: 3.8, z: 0.1}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10430,7 +10431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1758354314
 Transform:
   m_ObjectHideFlags: 0
@@ -10525,7 +10526,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.02e-43, y: 1.26e-43, z: 0, w: 4.3e-44}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 3.61759e-40}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0

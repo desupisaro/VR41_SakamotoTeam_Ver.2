@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c6743398593a44caa4eaff8860faf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitEffect: {fileID: 5435976165695371152, guid: e4056666368347e4a9b192d376611db4, type: 3}
 --- !u!54 &-1297050636958596826
 Rigidbody:
   m_ObjectHideFlags: 0
