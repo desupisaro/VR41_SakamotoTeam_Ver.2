@@ -27,8 +27,17 @@ public class SEManager : MonoBehaviour
     [SerializeField] private bool _loop         = false;
     [SerializeField, Range(0, 1)] private float _volume = 0.5f;
 
-    [Header("再生するBGM")]
-    [SerializeField] private AudioResource _BGM;
+    // SEをまとめる構造体。
+    [System.Serializable]
+    private struct SoundEffects
+    {
+        public string _name;
+        public int _number;
+        public AudioClip _clip;
+    }
+
+    [Header("再生するSE")]
+    [SerializeField] private SoundEffects[] _soundEffects;
 
 
     //-------------------------------------------------------------------------------------------------
@@ -60,21 +69,33 @@ public class SEManager : MonoBehaviour
         if (_audioSource != null)
         {
             // あらかじめ設定した初期設定に変更。
-            _audioSource.resource = _BGM;
-            _audioSource.mute = _mute;
-            _audioSource.playOnAwake = _playOnAwake;
-            _audioSource.loop = _loop;
-            _audioSource.volume = _volume;
-
-            // BGMが設定されている場合。
-            if (_BGM != null)
-                _audioSource.Play(); // BGMの再生。
-            else
-                Debug.LogWarning("BGMを設定してください。");
+            _audioSource.mute           = _mute;
+            _audioSource.playOnAwake    = _playOnAwake;
+            _audioSource.loop           = _loop;
+            _audioSource.volume         = _volume;
         }
         else
         {
             Debug.LogWarning("AudioSourceがアタッチされていません。");
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------------
+    // public void PlaySE()関数。
+    // 引数１：再生するSE番号。
+    //-------------------------------------------------------------------------------------------------
+    public void PlaySE(int _num)
+    {
+        // _soundEffects内の情報を全て調べる。
+        foreach (SoundEffects _effect in _soundEffects)
+        {
+            // 再生させたいSE番号と一致した場合。
+            if(_effect._number == _num)
+            {
+                // SEを再生した後、ループ終了。
+                _audioSource.PlayOneShot(_effect._clip);
+                break;
+            }
         }
     }
 }

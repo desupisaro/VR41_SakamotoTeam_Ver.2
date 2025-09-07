@@ -13,7 +13,7 @@ public class GunController : MonoBehaviour
 
     [SerializeField]
     [Header("銃を撃つサウンド")]
-    private AudioSource _audio;
+    private SEManager _audio;
 
     // 持っているかどうか判定するためのやつ
     [SerializeField]
@@ -31,7 +31,7 @@ public class GunController : MonoBehaviour
             Shoot();
 
             // サウンド再生
-            _audio.Play();
+            _audio.PlaySE(0);
         }
     }
 
