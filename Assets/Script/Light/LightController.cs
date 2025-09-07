@@ -15,7 +15,7 @@ public class LightController : MonoBehaviour
 
     [SerializeField]
     [Header("ライトONOFFのサウンド")]
-    private AudioSource _audio;
+    private SEManager _audio;
 
     [SerializeField]
     private HandSelector _selectHands;
@@ -36,7 +36,7 @@ public class LightController : MonoBehaviour
             OnLight();
 
             // サウンド再生
-            _audio.Play();
+            _audio.PlaySE(4);
         }
     }
 
