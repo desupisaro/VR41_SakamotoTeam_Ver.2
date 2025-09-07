@@ -19,17 +19,17 @@ public class BulletController : MonoBehaviour
     }
 
     // Õ“Ë”»’èiTriggerj
-    private void OnTriggerEnter(Collider other)
-    {
-        // —áF“G‚É“–‚½‚Á‚½‚ç”j‰ó
-        if (other.CompareTag("Enemy"))
-        {
-            // “G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚È‚Ç
-            Destroy(other.gameObject);
-        }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    // —áF“G‚É“–‚½‚Á‚½‚ç”j‰ó
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        // “G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚È‚Ç
+    //        Destroy(other.gameObject);
+    //    }
 
-        // ’e©g‚àÁ‚·
-        Destroy(gameObject);
-    }
+    //    // ’e©g‚àÁ‚·
+    //    Destroy(gameObject);
+    //}
 
 }
