@@ -5,30 +5,33 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     /// <summary>
-    /// ’e‚Ì‘¬“x (m/s)
+    /// å¼¾ã®é€Ÿåº¦ (m/s)
     /// </summary>
     [SerializeField]
     private float m_bulletSpeed = 27.0f;
 
+    [SerializeField]
+    [Header("Hitã‚¨ãƒ•ã‚§ã‚¯ãƒˆ")]
+    private ParticleSystem HitEffect;
+
     // Update is called once per frame
     void Update()
     {
-        //’e‚ğ‘O‚Éi‚Ü‚¹‚é
+        //å¼¾ã‚’å‰ã«é€²ã¾ã›ã‚‹
         transform.position +=
             transform.forward * m_bulletSpeed * Time.deltaTime;
     }
 
-    // Õ“Ë”»’èiTriggerj
+    // è¡çªåˆ¤å®šï¼ˆTriggerï¼‰
     //private void OnTriggerEnter(Collider other)
     //{
-    //    // —áF“G‚É“–‚½‚Á‚½‚ç”j‰ó
+    //    // ä¾‹ï¼šæ•µã«å½“ãŸã£ãŸã‚‰ç ´å£Š
     //    if (other.CompareTag("Enemy"))
     //    {
-    //        // “G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚È‚Ç
+    //        // æ•µã«ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆã‚‹å‡¦ç†ãªã©
     //        Destroy(other.gameObject);
     //    }
-
-    //    // ’e©g‚àÁ‚·
+    //    // å¼¾è‡ªèº«ã‚‚æ¶ˆã™
     //    Destroy(gameObject);
     //}
 

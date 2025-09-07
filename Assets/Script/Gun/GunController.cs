@@ -7,6 +7,10 @@ public class GunController : MonoBehaviour
     [Header("弾のオブジェクト")]
     private GameObject bulletPrefab;
 
+    [SerializeField] 
+    [Header("撃ったエフェクト")]
+    private ParticleSystem GunEffect;
+
     [SerializeField]
     [Header("弾の発射位置")]
     private Transform muzzlePos;
@@ -34,6 +38,8 @@ public class GunController : MonoBehaviour
            _selectHands.GetHandRight())
         {
             Shoot();
+
+            GunEffect.Play();
 
             // サウンド再生
             _audio.PlaySE(0);
