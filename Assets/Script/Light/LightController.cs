@@ -23,6 +23,11 @@ public class LightController : MonoBehaviour
     // ライトの状態判定
     bool _isLight = false;
 
+    private void Start()
+    {
+        _audio = GameObject.FindGameObjectWithTag("SEManager").GetComponent<SEManager>();
+    }
+
     void Update()
     {
 

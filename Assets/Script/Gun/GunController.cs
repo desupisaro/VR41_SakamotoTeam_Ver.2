@@ -22,6 +22,11 @@ public class GunController : MonoBehaviour
     [SerializeField] 
     private HandSelector _selectHands;
 
+    private void Start()
+    {
+        _audio = GameObject.FindGameObjectWithTag("SEManager").GetComponent<SEManager>();
+    }
+
     void Update()
     {
         if (grabInteractable != null &&
